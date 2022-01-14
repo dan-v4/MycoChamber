@@ -113,6 +113,9 @@ void setup() {
   server.on("/mystyle.css", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/mystyle.css","text/css");
   });
+  server.on("/sitescr.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/sitescr.js", "text/javascript");
+  });
 
   server.on("/timer", HTTP_POST, [](AsyncWebServerRequest *request){
     String inputMessage1 = request->getParam(PARAM_INPUT_1)->value();
